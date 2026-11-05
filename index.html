@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>京都五日專屬訂製行程表</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F6F0;
+      --card-bg: #FFFFFF;
+      --primary: #2C352E;
+      --accent: #8E7958;
+      --accent-light: #F2ECE1;
+      --text: #2B2B2B;
+      --text-muted: #6E6E6E;
+      --line: #E5DFC5;
+      --border: #E8E5DD;
+      --tag-bg: #EAE5D9;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      padding: 40px 20px 50px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .header-sub {
+      font-family: 'Noto Serif TC', serif;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .header-meta {
+      display: inline-flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .day-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
+      margin-bottom: 35px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      background: #FAFAF7;
+      padding: 22px 30px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .day-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .day-badge {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .day-date {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .day-route {
+      background: var(--tag-bg);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .day-content {
+      padding: 30px;
+    }
+
+    .route-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .route-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .route-block {
+      background: #FCFCFA;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .route-block-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+    }
+
+    .timeline-item.highlight::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .timeline-time {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    .timeline-desc {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .timeline-desc .note {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .hotel-info {
+      margin-top: 25px;
+      padding: 16px 20px;
+      background: #F7F5EE;
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    .hotel-label {
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .hotel-name {
+      font-weight: 500;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    @media print {
+      body {
+        background: #FFF;
+        padding: 0;
+      }
+      .day-card {
+        box-shadow: none;
+        border: 1px solid #CCC;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="header-sub">Exclusive Journey</div>
+    <h1>京都五日專屬訂製行程</h1>
+    <div class="header-meta">
+      <span>行程日期：12 月 7 日 – 12 月 11 日</span>
+    </div>
+  </header>
+
+  <!-- Day 1 -->
+  <section class="day-card">
+    <div class="day-header">
+      <div class="day-title-group">
+        <span class="day-badge">Day 1</span>
+        <span class="day-date">12 月 7 日（週一）</span>
+      </div>
+    </div>
+    <div class="day-content">
+      <div class="route-split">
+        <div class="route-block">
+          <div class="route-block-title">路線一：東京 ➔ 京都（Sammi）</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">09:15</div>
+              <div class="timeline-desc">自 東京全日空洲際酒店 出發</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">09:45</div>
+              <div class="timeline-desc">抵達 東京車站</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">10:12</div>
+              <div class="timeline-desc">搭乘新幹線（Nozomi）前往京都</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">12:23</div>
+              <div class="timeline-desc">抵達 京都車站</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="timeline-time">12:50</div>
+              <div class="timeline-desc">與專屬包車會合後出發</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">13:15</div>
+              <div class="timeline-desc">一保堂茶舖 京都本店</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">14:05</div>
+              <div class="timeline-desc">前往 二條城</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="timeline-time">14:15</div>
+              <div class="timeline-desc">參觀 二條城</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">15:30</div>
+              <div class="timeline-desc">前往 京都六善酒店</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">15:55</div>
+              <div class="timeline-desc">抵達 京都六善酒店</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-block">
+          <div class="route-block-title">路線二：關西機場 ➔ 京都（爸爸媽媽）</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">14:00</div>
+              <div class="timeline-desc">抵達 關西國際機場（KIX）</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">15:00</div>
+              <div class="timeline-desc">自 關西國際機場出發</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="timeline-time">16:30</div>
+              <div class="timeline-desc">抵達 京都六善酒店，辦理入住</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-info">
+        <span class="hotel-label">住宿安排</span>
+        <span class="hotel-name">京都六善酒店（Six Senses Kyoto）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 2 -->
+  <section class="day-card">
+    <div class="day-header">
+      <div class="day-title-group">
+        <span class="day-badge">Day 2</span>
+        <span class="day-date">12 月 8 日（週二）</span>
+      </div>
+    </div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">08:15</div>
+          <div class="timeline-desc">自飯店出發前往 厭離庵</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-desc">厭離庵 2 小時私人包場與中文導覽參觀</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11:05</div>
+          <div class="timeline-desc">前往 東山地區</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11:40</div>
+          <div class="timeline-desc">東山周邊午餐</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">13:10</div>
+          <div class="timeline-desc">前往 清水寺（茶碗坂）</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">13:20</div>
+          <div class="timeline-desc">參觀 清水寺</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:20</div>
+          <div class="timeline-desc">前往 八坂神社</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:30</div>
+          <div class="timeline-desc">八坂神社 & 圓山公園散策</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">17:30</div>
+          <div class="timeline-desc">前往 東山附近餐廳</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">17:40</div>
+          <div class="timeline-desc">精選晚餐</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">19:40</div>
+          <div class="timeline-desc">返回飯店休息</div>
+        </div>
+      </div>
+
+      <div class="hotel-info">
+        <span class="hotel-label">住宿安排</span>
+        <span class="hotel-name">京都六善酒店（Six Senses Kyoto）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 3 -->
+  <section class="day-card">
+    <div class="day-header">
+      <div class="day-title-group">
+        <span class="day-badge">Day 3</span>
+        <span class="day-date">12 月 9 日（週三）</span>
+      </div>
+    </div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">10:00</div>
+          <div class="timeline-desc">自飯店出發前往宇治</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">10:30</div>
+          <div class="timeline-desc">平等院鳳凰堂參觀</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11:40</div>
+          <div class="timeline-desc">松阪屋嘉八本店</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-desc">出發前往午餐</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12:40</div>
+          <div class="timeline-desc">宇治周邊午餐</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">13:55</div>
+          <div class="timeline-desc">司機接送前往 辻利兵衛本店</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">14:05 / 14:15</div>
+          <div class="timeline-desc">
+            宇治茶事體驗與悠閒散策
+            <span class="note">・14:05 貴賓 1 位(Sammi)進行茶道體驗</span>
+            <span class="note">・14:15 司機陪同貴賓 2 位（爸爸媽媽）散步、品飲咖啡</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:05</div>
+          <div class="timeline-desc">前往 辻利兵衛本店接回貴賓</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:10</div>
+          <div class="timeline-desc">貴賓上車，專車啟程返回京都</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">16:25</div>
+          <div class="timeline-desc">抵達 京都嘉佩樂酒店，入住休息</div>
+        </div>
+      </div>
+
+      <div class="hotel-info">
+        <span class="hotel-label">住宿安排</span>
+        <span class="hotel-name">京都嘉佩樂酒店（Capella Kyoto）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 4 -->
+  <section class="day-card">
+    <div class="day-header">
+      <div class="day-title-group">
+        <span class="day-badge">Day 4</span>
+        <span class="day-date">12 月 10 日（週四）</span>
+      </div>
+    </div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-desc">退房並出發前往八瀨</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">09:50</div>
+          <div class="timeline-desc">抵達八瀨</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">10:00</div>
+          <div class="timeline-desc">參觀 琉璃光院</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11:15</div>
+          <div class="timeline-desc">出發前往午餐地點</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-desc">
+            Raiz 用餐
+            <span class="note">預訂時間：12:00</span>
+            <span class="note">預訂姓名：Huang Sammi</span>
+            <span class="note">預訂ID：44896d81</span>
+            <span class="note">座位種類：Private Room</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">14:00</div>
+          <div class="timeline-desc">
+            前往博物館
+            <span class="note">推薦：京都文化博物館、泉屋博古館、漢字博物館</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">14:25</div>
+          <div class="timeline-desc">
+            參觀博物館
+            <span class="note">※ 亦可彈性調整至明日 12/11 參觀</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:40</div>
+          <div class="timeline-desc">前往 祇園</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:55</div>
+          <div class="timeline-desc">
+            祇園歷史散策
+            <span class="note">※ 亦可彈性調整至明日 12/11 進行</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">16:55</div>
+          <div class="timeline-desc">返回 京都嘉佩樂酒店 休息</div>
+        </div>
+      </div>
+
+      <div class="hotel-info">
+        <span class="hotel-label">住宿安排</span>
+        <span class="hotel-name">京都嘉佩樂酒店（Capella Kyoto）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 5 -->
+  <section class="day-card">
+    <div class="day-header">
+      <div class="day-title-group">
+        <span class="day-badge">Day 5</span>
+        <span class="day-date">12 月 11 日（週五）</span>
+      </div>
+    </div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">上午</div>
+          <div class="timeline-desc">飯店辦理退房手續</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">白天</div>
+          <div class="timeline-desc">
+            專屬自由活動時光
+            <span class="note">・祇園慢活散策 或 博物館藝文巡禮</span>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">15:00 左右</div>
+          <div class="timeline-desc">專車啟程前往 關西國際機場（KIX）</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">19:00</div>
+          <div class="timeline-desc">回程航班起飛</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    FINE TRAVEL EXPERIENCE · TAILOR-MADE ITINERARY
+  </footer>
+
+</div>
+
+</body>
+</html>
