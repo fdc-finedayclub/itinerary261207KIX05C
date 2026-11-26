@@ -308,6 +308,33 @@
       background: var(--line);
     }
 
+    .museum-options {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .museum-option {
+      padding: 10px 14px;
+      background: #FAF8F3;
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+    }
+
+    .museum-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    a:not(.map-btn) {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     @media print {
       body {
         background: #FFF;
@@ -354,7 +381,7 @@
               <div class="timeline-time">09:45</div>
               <div class="timeline-desc">抵達 東京車站</div>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item highlight">
               <div class="timeline-time">10:12</div>
               <div class="timeline-desc">搭乘新幹線（Nozomi）前往京都</div>
             </div>
@@ -362,7 +389,7 @@
               <div class="timeline-time">12:23</div>
               <div class="timeline-desc">抵達 京都車站</div>
             </div>
-            <div class="timeline-item highlight">
+            <div class="timeline-item">
               <div class="timeline-time">12:50</div>
               <div class="timeline-desc">與專屬包車會合後出發</div>
             </div>
@@ -374,7 +401,7 @@
               <div class="timeline-time">14:05</div>
               <div class="timeline-desc">前往 二條城</div>
             </div>
-            <div class="timeline-item highlight">
+            <div class="timeline-item">
               <div class="timeline-time">14:15</div>
               <div class="timeline-desc">參觀 二條城</div>
             </div>
@@ -400,7 +427,7 @@
               <div class="timeline-time">15:00</div>
               <div class="timeline-desc">自 關西國際機場出發</div>
             </div>
-            <div class="timeline-item highlight">
+            <div class="timeline-item">
               <div class="timeline-time">16:30</div>
               <div class="timeline-desc">抵達 京都六善酒店，辦理入住</div>
             </div>
@@ -437,7 +464,7 @@
           <div class="timeline-time">11:05</div>
           <div class="timeline-desc">前往午餐餐廳</div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item highlight">
           <div class="timeline-time">12:00</div>
           <div class="timeline-desc">
             蕎麥之實よしむら
@@ -456,7 +483,7 @@
             <span class="note">下鴨神社南邊較少人潮的紅葉名所</span>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item highlight">
           <div class="timeline-time">隨後</div>
           <div class="timeline-desc">
             前往咖啡廳 The Unir Coffee Senses
@@ -471,7 +498,7 @@
             </div>
           </div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
           <div class="timeline-time">17:40</div>
           <div class="timeline-desc">返回飯店</div>
         </div>
@@ -502,7 +529,7 @@
           <div class="timeline-time">10:00</div>
           <div class="timeline-desc">自飯店出發前往宇治</div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
           <div class="timeline-time">10:30</div>
           <div class="timeline-desc">平等院鳳凰堂參觀</div>
         </div>
@@ -514,7 +541,7 @@
             <a class="map-btn" href="https://maps.app.goo.gl/zHBEZ2tmxdp6LrfC7" target="_blank" rel="noopener">📍 點此查看地圖</a>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item highlight">
           <div class="timeline-time">12:00</div>
           <div class="timeline-desc">
             TATSUMIYA 京料理 辰巳屋
@@ -532,7 +559,7 @@
           <div class="timeline-time">13:45</div>
           <div class="timeline-desc">司機接送前往 辻利兵衛本店</div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
           <div class="timeline-time">14:00 / 14:15</div>
           <div class="timeline-desc">
             <div class="route-split" style="margin-bottom:0;margin-top:10px;">
@@ -571,7 +598,7 @@
           <div class="timeline-time">15:30</div>
           <div class="timeline-desc">辻利兵衛本店接回貴賓，前往飯店Capella Kyoto</div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
           <div class="timeline-time">16:20</div>
           <div class="timeline-desc">抵達飯店，入住休息</div>
         </div>
@@ -606,7 +633,7 @@
           <div class="timeline-time">09:50</div>
           <div class="timeline-desc">抵達八瀨</div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
           <div class="timeline-time">10:00</div>
           <div class="timeline-desc">參觀 琉璃光院</div>
         </div>
@@ -640,7 +667,7 @@
               <div class="route-block">
                 <div class="route-block-title">路線一：Sammi</div>
                 <div class="timeline">
-                  <div class="timeline-item highlight">
+                  <div class="timeline-item">
                     <div class="timeline-time">14:00</div>
                     <div class="timeline-desc">
                       Sammi個人行程
@@ -658,6 +685,23 @@
                     <div class="timeline-desc">
                       參觀博物館
                       <span class="note">※ 亦可彈性調整至明日 12/11 參觀</span>
+                      <div class="museum-options">
+                        <div class="museum-option">
+                          <div class="museum-name">京都文化博物館</div>
+                          <span class="note">以京都的歷史、藝術與傳統文化為主題，透過歷史文物、藝術展覽及影像展示，認識京都從古至今的文化發展。</span>
+                          <span class="note"><a href="https://www.bunpaku.or.jp/" target="_blank" rel="noopener">查看資訊</a></span>
+                        </div>
+                        <div class="museum-option">
+                          <div class="museum-name">泉屋博古館</div>
+                          <span class="note">以日本住友家族的私人收藏為主，館藏包含中國古代青銅器、銅鏡、陶瓷、茶道具及工藝品等，環境清幽適合靜心看展。</span>
+                          <span class="note"><a href="https://sen-oku.or.jp/" target="_blank" rel="noopener">查看資訊</a></span>
+                        </div>
+                        <div class="museum-option">
+                          <div class="museum-name">漢字博物館</div>
+                          <span class="note">位在祇園、八坂神社旁，以漢字的起源、演變及日本漢字文化為主題，有許多互動展覽與遊戲。</span>
+                          <span class="note"><a href="https://maps.app.goo.gl/MGNP9ehRHXf2ff5R6" target="_blank" rel="noopener">查看資訊</a></span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -703,13 +747,13 @@
           <div class="timeline-time">上午</div>
           <div class="timeline-desc">飯店辦理退房手續</div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
                     <div class="timeline-desc">
             專屬自由活動時光
             <span class="note">・祇園慢活散策 或 博物館藝文巡禮</span>
           </div>
         </div>
-        <div class="timeline-item highlight">
+        <div class="timeline-item">
           <div class="timeline-time">15:00 左右</div>
           <div class="timeline-desc">專車啟程前往 關西國際機場（KIX）</div>
         </div>
