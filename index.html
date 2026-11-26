@@ -256,6 +256,58 @@
       letter-spacing: 1px;
     }
 
+    .booking {
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: #FAF8F3;
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .booking-title {
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .booking-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 3px;
+    }
+
+    .booking-label {
+      color: var(--accent);
+      font-weight: 600;
+      min-width: 56px;
+    }
+
+    .booking-time {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .map-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+    }
+
+    .map-btn:hover {
+      background: var(--line);
+    }
+
     @media print {
       body {
         background: #FFF;
@@ -274,8 +326,8 @@
 <div class="container">
 
   <header class="header">
-    <div class="header-sub">Exclusive Journey</div>
-    <h1>京都五日專屬訂製行程</h1>
+    <div class="header-sub">FineDayClub</div>
+    <h1>京都五日訂製行程</h1>
     <div class="header-meta">
       <span>行程日期：12 月 7 日 – 12 月 11 日</span>
     </div>
@@ -383,39 +435,49 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-time">11:05</div>
-          <div class="timeline-desc">前往 東山地區</div>
+          <div class="timeline-desc">前往午餐餐廳</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">11:40</div>
-          <div class="timeline-desc">東山周邊午餐</div>
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-desc">
+            蕎麥之實よしむら
+            <span class="note">手打蕎麥老店，熱蕎麥配小菜是很受歡迎的組合</span>
+            <a class="map-btn" href="https://maps.app.goo.gl/J323G2NPRPsZ6Fzh9" target="_blank" rel="noopener">📍 點此查看地圖</a>
+            <div class="booking">
+              <div class="booking-title">預訂資訊</div>
+              <div class="booking-row booking-time"><span class="booking-label">預約時段</span><span>12:00</span></div>
+              <div class="booking-row"><span class="booking-label">預約姓名</span><span>Huang</span></div>
+            </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">13:10</div>
-          <div class="timeline-desc">前往 清水寺（茶碗坂）</div>
-        </div>
-        <div class="timeline-item highlight">
-          <div class="timeline-time">13:20</div>
-          <div class="timeline-desc">參觀 清水寺</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">15:20</div>
-          <div class="timeline-desc">前往 八坂神社</div>
+          <div class="timeline-time">13:30</div>
+          <div class="timeline-desc">
+            前往 舊三井家下鴨別邸
+            <span class="note">下鴨神社南邊較少人潮的紅葉名所</span>
+          </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">15:30</div>
-          <div class="timeline-desc">八坂神社 & 圓山公園散策</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">17:30</div>
-          <div class="timeline-desc">前往 東山附近餐廳</div>
+          <div class="timeline-time">隨後</div>
+          <div class="timeline-desc">
+            前往咖啡廳 The Unir Coffee Senses
+            <br>
+            <a class="map-btn" href="https://maps.app.goo.gl/b1a21Vvite1ZEt267" target="_blank" rel="noopener">📍 點此查看地圖</a>
+            <div class="booking">
+              <div class="booking-title">預約資訊</div>
+              <div class="booking-row booking-time"><span class="booking-label">預約時段</span><span>15:30-17:30</span></div>
+              <div class="booking-row"><span class="booking-label">預約姓名</span><span>Huang</span></div>
+              <div class="booking-row"><span class="booking-label">座位</span><span>VIP ROOM</span></div>
+              <div class="booking-row"><span class="booking-label">備註</span><span>提前預訂一份當季水果三明治套餐</span></div>
+            </div>
+          </div>
         </div>
         <div class="timeline-item highlight">
           <div class="timeline-time">17:40</div>
-          <div class="timeline-desc">精選晚餐</div>
+          <div class="timeline-desc">返回飯店</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">19:40</div>
-          <div class="timeline-desc">返回飯店休息</div>
+          <div class="timeline-time">晚間</div>
+          <div class="timeline-desc">飯店內用餐</div>
         </div>
       </div>
 
@@ -445,40 +507,77 @@
           <div class="timeline-desc">平等院鳳凰堂參觀</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">11:40</div>
-          <div class="timeline-desc">松阪屋嘉八本店</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">12:00</div>
-          <div class="timeline-desc">出發前往午餐</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">12:40</div>
-          <div class="timeline-desc">宇治周邊午餐</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">13:55</div>
-          <div class="timeline-desc">司機接送前往 辻利兵衛本店</div>
-        </div>
-        <div class="timeline-item highlight">
-          <div class="timeline-time">14:05 / 14:15</div>
+          <div class="timeline-time">11:30</div>
           <div class="timeline-desc">
-            宇治茶事體驗與悠閒散策
-            <span class="note">・14:05 貴賓 1 位(Sammi)進行茶道體驗</span>
-            <span class="note">・14:15 司機陪同貴賓 2 位（爸爸媽媽）散步、品飲咖啡</span>
+            松阪屋嘉八本店
+            <span class="note">參訪宇治老字號名店，選購在地特色物產</span>
+            <a class="map-btn" href="https://maps.app.goo.gl/zHBEZ2tmxdp6LrfC7" target="_blank" rel="noopener">📍 點此查看地圖</a>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">15:05</div>
-          <div class="timeline-desc">前往 辻利兵衛本店接回貴賓</div>
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-desc">
+            TATSUMIYA 京料理 辰巳屋
+            <span class="note">享用宇治在地特色風味午餐</span>
+            <a class="map-btn" href="https://maps.app.goo.gl/5i9moNiWq5Uwy8aYA" target="_blank" rel="noopener">📍 點此查看地圖</a>
+            <div class="booking">
+              <div class="booking-title">預約資訊</div>
+              <div class="booking-row booking-time"><span class="booking-label">預約時段</span><span>12:00</span></div>
+              <div class="booking-row"><span class="booking-label">預約姓名</span><span>Huang</span></div>
+              <div class="booking-row"><span class="booking-label">備註</span><span>安排於2樓桌椅座位</span></div>
+            </div>
+          </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">15:10</div>
-          <div class="timeline-desc">貴賓上車，專車啟程返回京都</div>
+          <div class="timeline-time">13:45</div>
+          <div class="timeline-desc">司機接送前往 辻利兵衛本店</div>
         </div>
         <div class="timeline-item highlight">
-          <div class="timeline-time">16:25</div>
-          <div class="timeline-desc">抵達 京都嘉佩樂酒店，入住休息</div>
+          <div class="timeline-time">14:00 / 14:15</div>
+          <div class="timeline-desc">
+            <div class="route-split" style="margin-bottom:0;margin-top:10px;">
+              <div class="route-block">
+                <div class="route-block-title">路線一：Sammi</div>
+                <div class="timeline">
+                  <div class="timeline-item highlight">
+                    <div class="timeline-time">14:00-15:30</div>
+                    <div class="timeline-desc">
+                      茶道體驗
+                      <span class="note">地點：辻利兵衛本店</span>
+                      <span class="note">導遊：三浦弘子 Ms. Miura Hiroko（What's App：+81 090-4931-5741）</span>
+                      <span class="note">負責當日指定體驗的陪同與引導（英文服務為主）</span>
+                      <a class="map-btn" href="https://maps.app.goo.gl/1d3xzz7j4VgGiSTJ9" target="_blank" rel="noopener">📍 點此查看地圖</a>
+                      <span class="note">・歡迎致意及簡單茶點</span>
+                      <span class="note">・親自體驗茶臼研磨</span>
+                      <span class="note">・茶道介紹及濃茶沖泡方式指導</span>
+                      <span class="note">・茶葉介紹與品茶體驗</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="route-block">
+                <div class="route-block-title">路線二：爸爸媽媽</div>
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-time">14:15</div>
+                    <div class="timeline-desc">司機陪同貴賓 2 位（爸爸媽媽）散步、品飲咖啡</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:30</div>
+          <div class="timeline-desc">辻利兵衛本店接回貴賓，前往飯店Capella Kyoto</div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-time">16:20</div>
+          <div class="timeline-desc">抵達飯店，入住休息</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">晚間</div>
+          <div class="timeline-desc">飯店內用餐</div>
         </div>
       </div>
 
@@ -512,47 +611,74 @@
           <div class="timeline-desc">參觀 琉璃光院</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">11:15</div>
-          <div class="timeline-desc">出發前往午餐地點</div>
+          <div class="timeline-time">11:30</div>
+          <div class="timeline-desc">前往午餐餐廳</div>
         </div>
         <div class="timeline-item highlight">
           <div class="timeline-time">12:00</div>
           <div class="timeline-desc">
-            Raiz 用餐
-            <span class="note">預訂時間：12:00</span>
-            <span class="note">預訂姓名：Huang Sammi</span>
-            <span class="note">預訂ID：44896d81</span>
-            <span class="note">座位種類：Private Room</span>
+            Raiz
+            <span class="note">悠閒享用預約主廚精緻料理午餐</span>
+            <a class="map-btn" href="https://maps.app.goo.gl/8xeX2sAeUNKBuW4U6" target="_blank" rel="noopener">📍 點此查看地圖</a>
+            <div class="booking">
+              <div class="booking-title">預約資訊</div>
+              <div class="booking-row booking-time"><span class="booking-label">預約時段</span><span>12:00</span></div>
+              <div class="booking-row"><span class="booking-label">預約姓名</span><span>Huang Sammi</span></div>
+              <div class="booking-row"><span class="booking-label">預約 ID</span><span>44896d81</span></div>
+              <div class="booking-row"><span class="booking-label">座位</span><span>Private Room</span></div>
+            </div>
           </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">13:40</div>
+          <div class="timeline-desc">前往Sammi個人行程</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-time">14:00</div>
           <div class="timeline-desc">
-            前往博物館
-            <span class="note">推薦：京都文化博物館、泉屋博古館、漢字博物館</span>
+            <div class="route-split" style="margin-bottom:0;margin-top:10px;">
+              <div class="route-block">
+                <div class="route-block-title">路線一：Sammi</div>
+                <div class="timeline">
+                  <div class="timeline-item highlight">
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-desc">
+                      Sammi個人行程
+                      <span class="note">地點待確認</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="route-block">
+                <div class="route-block-title">路線二：爸爸媽媽</div>
+                <span class="note" style="display:block;margin-bottom:12px;">可返回飯店休息，或參考以下建議行程</span>
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-time">14:25</div>
+                    <div class="timeline-desc">
+                      參觀博物館
+                      <span class="note">※ 亦可彈性調整至明日 12/11 參觀</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-time">15:40</div>
+                    <div class="timeline-desc">前往 祇園</div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-time">15:55</div>
+                    <div class="timeline-desc">
+                      祇園歷史散策
+                      <span class="note">※ 亦可彈性調整至明日 12/11 進行</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-time">14:25</div>
-          <div class="timeline-desc">
-            參觀博物館
-            <span class="note">※ 亦可彈性調整至明日 12/11 參觀</span>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">15:40</div>
-          <div class="timeline-desc">前往 祇園</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">15:55</div>
-          <div class="timeline-desc">
-            祇園歷史散策
-            <span class="note">※ 亦可彈性調整至明日 12/11 進行</span>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">16:55</div>
-          <div class="timeline-desc">返回 京都嘉佩樂酒店 休息</div>
+          <div class="timeline-time">晚間</div>
+          <div class="timeline-desc">飯店內用餐</div>
         </div>
       </div>
 
@@ -578,8 +704,7 @@
           <div class="timeline-desc">飯店辦理退房手續</div>
         </div>
         <div class="timeline-item highlight">
-          <div class="timeline-time">白天</div>
-          <div class="timeline-desc">
+                    <div class="timeline-desc">
             專屬自由活動時光
             <span class="note">・祇園慢活散策 或 博物館藝文巡禮</span>
           </div>
@@ -595,10 +720,6 @@
       </div>
     </div>
   </section>
-
-  <footer class="footer">
-    FINE TRAVEL EXPERIENCE · TAILOR-MADE ITINERARY
-  </footer>
 
 </div>
 
